@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Update...</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 { font-size: 24px; padding: 20px; }
+
+        .bar-container {
+            width: 80%;
+            border: 1px solid lime;
+            margin-top: 20px;
+        }
+        .bar {
+            width: 0%;
+            height: 20px;
+            background: lime;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="pesan">Memulai pembaruan sistem... Jangan matikan perangkat Anda.</h1>
+
+    <div class="bar-container">
+        <div id="bar" class="bar"></div>
+    </div>
+
+    <script>
+        let pesan = document.getElementById("pesan");
+        let bar = document.getElementById("bar");
+        let width = 0;
+
+        // Progress bar jalan
+        let interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                bar.style.width = width + "%";
+            }
+        }, 50);
+
+        // Alur teks biar dramatis
+        setTimeout(() => {
+            pesan.innerHTML = "Menghubungkan ke server...";
+        }, 1000);
+
+        setTimeout(() => {
+            pesan.innerHTML = "Mengunduh paket berbahaya...";
+        }, 2500);
+
+        setTimeout(() => {
+            pesan.innerHTML = "Menginstal virus...";
+        }, 4000);
+
+        // Klimaks prank
+        setTimeout(() => {
+            alert("⚠️ PERINGATAN SISTEM ⚠️");
+            alert("Verifikasi pemasangan virus berhasil! ☠️");
+            alert("Mulai mengenkripsi seluruh data...");
+
+            // Ending jelas prank
+            document.body.style.backgroundColor = "white";
+
+            pesan.innerHTML = `
+            <h1 style="color:black;">😈 PRANK!</h1>
+            <p style="color:black;font-size:18px;">
+            Tenang bro, ini cuma prank.<br>
+            Tidak ada virus, tidak ada data yang diambil.<br><br>
+            😎 Kamu aman 100%
+            </p>
+            `;
+        }, 5500);
+    </script>
+
+</body>
+</html>
